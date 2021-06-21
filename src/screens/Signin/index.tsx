@@ -24,7 +24,6 @@ export function Singnin() {
         </Text>
 
         <ButtonIcon title="Entrar com Discord" activeOpacity={0.7}/>
-
       </View>
     </View>
   );
