@@ -9,6 +9,7 @@ export function SmallInput({...rest}:TextInputProps){
     <TextInput
      style={styles.container}
      keyboardType="numeric"
+     {...rest}
      />
   )
 }

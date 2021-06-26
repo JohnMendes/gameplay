@@ -1,0 +1,9 @@
+const DATABASE_NAME = '@gameplay';
+
+const COLLECTION_USER = `${DATABASE_NAME}:user`;
+const COLLECTION_APPONTIMENTS = `${DATABASE_NAME}:appointments`;
+
+export {
+  COLLECTION_APPONTIMENTS,
+  COLLECTION_USER
+}
