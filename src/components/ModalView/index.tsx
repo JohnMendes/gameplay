@@ -16,7 +16,7 @@ type Props = ModalProps & {
 
 export function ModalView({ children,closeModal, ...rest }: Props) {
   return (
-    <Modal transparent animationType="slide" {...rest}>
+    <Modal statusBarTranslucent transparent animationType="slide" {...rest}>
       <TouchableWithoutFeedback onPress={closeModal}>
         <View style={styles.overlay}>
           <View style={styles.container}>

@@ -41,6 +41,10 @@ export function AppointmentCreate() {
     setOpenGuildsModal(false);
   }
 
+  function handleCategorySelect(categoryId: string) {
+    setCategory(categoryId);
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -61,7 +65,7 @@ export function AppointmentCreate() {
 
           <CategotySelect
             hasCheckBox
-            setCategory={setCategory}
+            setCategory={handleCategorySelect}
             CategotySelect={category}
           />
 
@@ -83,7 +87,7 @@ export function AppointmentCreate() {
             </RectButton>
             <View style={styles.field}>
               <View>
-                <Text style={styles.label}>Dia do Mês</Text>
+                <Text style={[styles.label, {marginBottom:12}]}>Dia do Mês</Text>
                 <View style={styles.column}>
                   <SmallInput maxLength={2} />
                   <Text style={styles.divider}>/</Text>
@@ -91,7 +95,7 @@ export function AppointmentCreate() {
                 </View>
               </View>
               <View>
-                <Text style={styles.label}>Hora e Minuto</Text>
+                <Text style={[styles.label, {marginBottom:12}]}>Hora e Minuto</Text>
                 <View style={styles.column}>
                   <SmallInput maxLength={2} />
                   <Text style={styles.divider}>:</Text>

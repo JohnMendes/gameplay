@@ -23,30 +23,7 @@ export function Guilds({handleGuildsSelect}:Props) {
       icon: "image.png",
       owner: true,
     },
-    {
-      id: "3",
-      name: "KillGames",
-      icon: "image.png",
-      owner: true,
-    },
-    {
-      id: "4",
-      name: "KillGames",
-      icon: "image.png",
-      owner: true,
-    },
-    {
-      id: "5",
-      name: "KillGames",
-      icon: "image.png",
-      owner: true,
-    },
-    {
-      id: "6",
-      name: "KillGames",
-      icon: "image.png",
-      owner: true,
-    },
+
   ];
 
   return (

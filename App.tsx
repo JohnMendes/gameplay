@@ -7,9 +7,10 @@ import {
   Rajdhani_700Bold,
 } from "@expo-google-fonts/rajdhani";
 import AppLoading from "expo-app-loading";
-import {Background} from './src/components/Background'
+import { Background } from "./src/components/Background";
 
 import { Routes } from "./src/routes";
+import { AuthProvider } from "./src/hooks/auth";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,7 +31,9 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Routes />
-      </Background>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </Background>
   );
 }
