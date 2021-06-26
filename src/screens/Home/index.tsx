@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-import { View, FlatList, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, FlatList } from "react-native";
 import { styles } from "./styles";
 import { Profile } from "../../components/Profile";
 import { ButtonAdd } from "../../components/ButtonAdd";
@@ -9,8 +9,11 @@ import { ListHeader } from "../../components/ListHeader";
 import { Appointment } from "../../components/Appointment";
 import { ListDivider } from "../../components/ListDivider";
 
+import { Background } from "../../components/Background";
+
 export function Home() {
   const [category, setCategory] = useState("");
+  const navigation = useNavigation();
 
   const appointments = [
     {
@@ -39,33 +42,45 @@ export function Home() {
       description:
         "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
     },
+
   ];
+
+  function handleAppointmentDetails() {
+    navigation.navigate('AppointmentDetails')
+  }
+  function handleAppointmentCreate() {
+    navigation.navigate('AppointmentCreate')
+  }
 
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
       <CategotySelect
         CategotySelect={category}
         setCategory={handleCategorySelect}
+        hasCheckBox={false}
       />
-      <View style={styles.content}>
+      
         <ListHeader title="Partidas Agendadas" subtitle="Total 6" />
         <FlatList
           data={appointments}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Appointment data={item} />}
+          renderItem={({ item }) => (
+            <Appointment data={item} onPress={handleAppointmentDetails} />
+          )}
           ItemSeparatorComponent={() => <ListDivider />}
+          contentContainerStyle={{paddingBottom:69}}
           style={styles.matches}
           showsVerticalScrollIndicator={false}
         />
-      </View>
-    </View>
+      
+    </Background>
   );
 }

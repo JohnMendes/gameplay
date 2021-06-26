@@ -1,6 +1,5 @@
 import React from "react";
 import {ScrollView} from 'react-native'
-import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 
 import { styles } from "./styles";
 import {categories} from '../../utils/categories'
@@ -9,9 +8,10 @@ import { Category } from '../Category'
 type Props ={
   CategotySelect: string;
   setCategory: (categoryId:string) => void;
+  hasCheckBox?: boolean;
 }
 
-export function CategotySelect({CategotySelect, setCategory, ...rest}:Props) {
+export function CategotySelect({CategotySelect, setCategory,hasCheckBox = false, ...rest}:Props) {
   return (
   <ScrollView style={styles.container} 
   horizontal
@@ -25,6 +25,7 @@ export function CategotySelect({CategotySelect, setCategory, ...rest}:Props) {
       icon={category.icon}
       checked={category.id === CategotySelect }
       onPress={()=> setCategory(category.id)}
+      hasCheckBox={hasCheckBox}
       />
     ))}
   </ScrollView>
